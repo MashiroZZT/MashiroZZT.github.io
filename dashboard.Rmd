@@ -1,0 +1,96 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(plotly)
+library(p8105.datasets)
+library(dplyr)
+```
+
+```{r}
+# Load the NY NOAA data
+data("ny_noaa")
+df <- ny_noaa
+
+# Filtering for complete cases for tmax and tmin, and limiting to 5000 rows for performance
+df <- df %>%
+  filter(!is.na(tmax) & !is.na(tmin) & !is.na(prcp)) %>%
+  mutate(year = as.numeric(format(date, "%Y")),
+         month = as.numeric(format(date, "%m"))) %>%
+  sample_n(5000)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+# Ensure tmax and tmin are numeric
+df$tmax <- as.numeric(df$tmax)
+df$tmin <- as.numeric(df$tmin)
+
+# Scatter plot of tmax vs tmin
+plot_ly(data = df, x = ~tmin, y = ~tmax, type = "scatter", mode = "markers",
+        marker = list(color = 'blue', opacity = 0.5)) %>%
+  layout(title = "Scatter Plot of Maximum vs Minimum Temperature",
+         xaxis = list(title = "Minimum Temperature (°C)", type = "linear"),
+         yaxis = list(title = "Maximum Temperature (°C)", type = "linear"))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+# Calculate average precipitation for each month across all years
+monthly_avg_precip <- df %>%
+  group_by(month) %>%
+  summarise(avg_precip = mean(prcp, na.rm = TRUE), .groups = "drop") %>%
+  arrange(month)
+
+# Create a bar plot
+plot_ly(data = monthly_avg_precip, 
+        x = ~factor(month, levels = 1:12, labels = month.abb), 
+        y = ~avg_precip, 
+        type = "bar",
+        marker = list(color = ~avg_precip, colorscale = "Blues"), 
+        text = ~round(avg_precip, 2), 
+        textposition = 'outside') %>% 
+  layout(title = list(text = "Average Precipitation by Month (All Years)", font = list(size = 24)),
+         xaxis = list(title = "Month", tickfont = list(size = 14)),
+         yaxis = list(title = "Average Precipitation (mm)", tickfont = list(size = 14)),
+         margin = list(t = 60), 
+         showlegend = FALSE)
+```
+
+### Chart C
+
+```{r}
+# Calculate monthly average maximum temperature over the years
+monthly_temp <- df %>%
+  group_by(year, month) %>%
+  summarise(mean_tmax = mean(tmax, na.rm = TRUE), .groups = "drop") %>%
+  arrange(year, month)
+
+# Create the line plot
+plot_ly(data = monthly_temp, 
+        x = ~year, 
+        y = ~mean_tmax, 
+        color = ~factor(month, labels = month.abb), # Color each month distinctly
+        type = "scatter", 
+        mode = "lines") %>%
+  layout(title = "Monthly Average Maximum Temperature Over Years",
+         xaxis = list(title = "Year"),
+         yaxis = list(title = "Average Maximum Temperature (°C)"),
+         legend = list(title = list(text = "Month")))
+```
+
