@@ -18,6 +18,5 @@ navbar:
       href: "mailto:mashiroshiina835@gmail.com"
 output:
   html_document:
-    theme: cerulean
+    theme: flatly
     highlight: tango
-    css: styles.css
