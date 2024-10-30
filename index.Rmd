@@ -1,0 +1,66 @@
+---
+title: "Zitao Zhang"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Welcome to My Personal Website
+
+Hello! I'm **Zitao Zhang**—a Master's student in Biostatistics at Columbia University with a strong foundation in data science, analytics, and research. This website shares my academic journey, research interests, personal passions, and contact information.
+
+---
+
+## About Me
+
+Originally from China, I pursued my studies in the United States, completing a Bachelor’s degree in Statistics (Data Science) at the University of Washington. Currently, I am diving into biostatistics at Columbia, with a keen interest in data-driven solutions for healthcare and technology.
+
+---
+
+## Hobbies and Interests
+
+Outside of academia, I enjoy exploring various hobbies that keep me balanced and inspired:
+
+- **Travel**: I love to travel, experiencing new cultures and discovering unique places worldwide.
+- **Photography**: Capturing landscapes, especially during my travels, helps me relax and appreciate the beauty of nature.
+- **Reading**: I have a particular interest in books about psychology, philosophy, and technology.
+
+These interests fuel my creativity and give me a broader perspective on life, which I bring into my work.
+
+---
+
+## Sports and Fitness
+
+Staying active is essential for me, and I incorporate sports into my daily life:
+
+- **Gym Workouts**: I enjoy regular workouts to stay fit, focusing on strength training and cardio.
+- **badminton**: I often play badminton with friends, which is a great way to stay active and connected.
+- **Hiking**: Exploring trails and spending time outdoors helps me recharge, both mentally and physically.
+
+Sports keep me disciplined, resilient, and ready to tackle challenges both on and off the court.
+
+---
+
+## Current Research Focus
+
+My research interests include:
+
+- **Single-cell RNA-seq**: Exploring gene expression at the cellular level to better understand diseases.
+- **Predictive Modeling**: Building models to forecast health outcomes and improve decision-making in medicine.
+- **Causal Inference**: Using statistical methods to identify cause-and-effect relationships in public health data.
+
+These areas align with my goal of making meaningful contributions to health research.
+
+---
+
+## Contact
+
+I'm open to networking, collaborations, and new opportunities. Please feel free to reach out through the links below!
+
+- **Email**: [mashiroshiina835@gmail.com](mailto:mashiroshiina835@gmail.com)
+- **LinkedIn:** [Zitao Zhang](https://www.linkedin.com/in/zitao-zhang-b69274228/)  
+- **GitHub**: [MashiroZZT](https://github.com/MashirZZT)
+
+Thank you for visiting, and I look forward to connecting with you!

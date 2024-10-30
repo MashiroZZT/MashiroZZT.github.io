@@ -1,0 +1,22 @@
+name: "Zitao Zhang"
+output_dir: "."
+title: "Zitao Zhang's Personal Website"
+description: "My portfolio and resume site created with R and distill"
+navbar:
+  title: "Zitao Zhang"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Resume"
+      href: resume.html
+  right:
+    - icon: fa-github fa-lg
+      href: "https://github.com/MashiroZZT"
+    - icon: fa-linkedin fa-lg
+      href: "https://www.linkedin.com/in/zitao-zhang-b69274228/"
+    - icon: fa-envelope fa-lg
+      href: "mailto:mashiroshiina835@gmail.com"
+output:
+  html_document:
+    theme: cerulean
+    highlight: tango

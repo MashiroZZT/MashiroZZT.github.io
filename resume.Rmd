@@ -1,0 +1,75 @@
+---
+title: "Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# Zitao Zhang
+
+**Location:** New York, NY  
+**Email:** mashiroshiina835@gmail.com  
+**Phone:** +1(206) 390-2802  
+**LinkedIn:** [Zitao Zhang](https://www.linkedin.com/in/zitao-zhang-b69274228/)  
+
+---
+
+## Education Background
+
+- **University of Washington**, Bachelor of Science in Statistics (Data Science), Sept. 2020 – June 2024, Seattle, WA  
+  GPA: 3.76/4.0  
+  Relevant Coursework: Probability and Mathematical Statistics, Linear Algebra, Computer Programming, Data Visualization, Data Structures and Algorithms, Intro to Database System, Statistical Machine Learning, Intermediate Data Programming
+
+- **Columbia University Irving Medical Center**, Master of Science in Biostatistics (Theory and Methods), Sept. 2024 – May 2026, New York, NY  
+
+---
+
+## Project Experience
+
+- **Phase 3 Clinical Trial Statistical Analysis**  
+  Aug. 2023 – Mar. 2024, New York, NY  
+  Mentored by a Senior Biostatistician at Bristol Myers Squibb  
+  Analyzed a clinical trial for a novel drug treating major depressive disorder. Utilized mixed models for repeated measures and created an interactive data dashboard in R Shiny.
+
+- **Data Analytics Strategy and Business Analysis**  
+  June 2023 – Aug. 2023, Austin, TX  
+  Mentored by a Senior Associate at Facebook  
+  Developed predictive models for customer preferences, created product recommendation systems, and provided business insights through Tableau visualizations.
+
+- **Pfizer-BioNTech COVID Vaccine Efficacy Analysis**  
+  Mar. 2023 – June 2023, Seattle, WA  
+  STAT 342 Final project at University of Washington  
+  Used Bayesian and Frequentist approaches to evaluate the efficacy of the BNT162b2 COVID-19 vaccine, confirming its effectiveness with robust statistical methodologies.
+
+---
+
+## Research Experience
+
+- **Machine Learning and Data Analysis**  
+  May 2021 – Sept. 2021, Carnegie Mellon University, Pittsburgh, PA  
+  Supervised by Prof. Pradeep Ravikumar  
+  Employed various prediction methods for MBTI analysis based on social media data. Research accepted and published at the CONF-CDS 2022.
+
+---
+
+## Professional Experience
+
+- **Externship, Gaming Market Research and Data Analytics**  
+  July 2022 – Sept. 2022, Mobalytics, Los Angeles, CA  
+  Conducted market analysis for 20+ gaming products, performed data manipulation, and presented insights for project leadership.
+
+---
+
+## Community Engagement
+
+- **Student Representative**, Students Expressing Environmental Dedication (SEED), Sept. 2021 – June 2022, Seattle, WA  
+  Led recycling initiatives and analyzed campus pollution data with Python, driving improvements in waste management.
+
+---
+
+## Languages & Skills
+
+- **Languages:** Chinese (Native), English (Fluent)
+- **Computer Skills:** R, Python, Tableau, SQL, Git, Java, JavaScript, MATLAB, Microsoft Office
