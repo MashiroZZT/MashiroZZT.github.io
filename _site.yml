@@ -1,5 +1,5 @@
 name: "Zitao Zhang"
-output_dir: "."
+output_dir: "_site"
 title: "Zitao Zhang's Personal Website"
 description: "My portfolio and resume site created with R and distill"
 navbar:
@@ -20,3 +20,4 @@ output:
   html_document:
     theme: cerulean
     highlight: tango
+    css: styles.css
