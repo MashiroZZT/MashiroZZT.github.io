@@ -1,0 +1,78 @@
+/* Third pass: preserve the archive; typography and composition carry the refinement. */
+@import 'archive-v2.css';
+@import 'tokens-v3.css';
+:root{
+ --text-display:clamp(3.5rem,6.8vw,6rem);
+ --text-heading:clamp(2.6rem,4.6vw,4.25rem);
+ --text-city:clamp(3.25rem,5.8vw,5.25rem);
+ --text-subheading:clamp(1.9rem,3vw,2.6rem);
+}
+.hero-copy h1{letter-spacing:-.025em;line-height:1.08}
+.hero-intro{line-height:1.4;max-width:27ch}
+.hero-note{max-width:38ch}
+.metadata,.site-header nav a,.atlas-reading,.chapter-context summary{letter-spacing:.025em}
+.life-chapter figcaption,.portrait figcaption,.travel-photo figcaption small{font-size:.75rem}
+.travel-photo figcaption{line-height:1.5}
+.atlas-tooltip{font-family:var(--font-meta);font-size:.8125rem;line-height:1.5}
+.academic-intro h1{line-height:1.12}
+.academic-section h2{font-size:clamp(2.5rem,4vw,3.75rem)}
+.academic-section p{line-height:1.75}
+.site-header nav a[aria-current]{text-decoration:none}
+.personal-hero{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:var(--space-xl)}
+.education .section-heading{display:block;max-width:760px;margin-bottom:var(--space-2xl)}
+.education .section-heading h2{max-width:20ch}
+.education .section-heading p{margin-top:var(--space-sm)}
+.world-section .section-heading{align-items:center;gap:var(--space-2xl)}
+.world-section .section-heading h2{max-width:19ch}
+.world-section .section-heading p{max-width:27ch}
+.photography .section-heading{display:block;margin-left:12%;max-width:700px;margin-bottom:var(--space-xl)}
+.photography .section-heading h2{max-width:20ch}
+.photography .section-heading p{margin-top:var(--space-sm)}
+.personal-note{max-width:860px;margin-block:var(--space-xl) var(--space-2xl);display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:var(--space-xl);align-items:center}
+.personal-note:before{content:none}
+.personal-note h2{font-size:var(--text-subheading)}
+.personal-note p{margin-top:var(--space-md)}
+.personal-note figure img{aspect-ratio:4/3;object-fit:cover}
+.personal-note figcaption{font-family:var(--font-meta);font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-xs)}
+.selected-photos{row-gap:var(--space-xl)}
+.selected-photos .photo-0{width:100%}
+.selected-photos .photo-1{width:85%;margin-left:var(--space-lg)}
+.selected-photos .photo-2{padding-top:var(--space-3xl);width:92%;justify-self:end}
+.selected-photos .photo-3{width:78%;margin-top:var(--space-xs)}
+.selected-photos .photo-0 figcaption{max-width:68%;margin-top:var(--space-sm)}
+.selected-photos .photo-1 figcaption{display:block}
+.selected-photos .photo-1 figcaption small{display:block;text-align:left;margin-top:var(--space-3xs)}
+.selected-photos .photo-3 figcaption{flex-direction:row-reverse}
+.photo-overlay{left:0;right:0;bottom:0;max-width:none;padding:var(--space-xl) var(--space-md) var(--space-md);border:0;background:linear-gradient(transparent,var(--color-map-21));text-shadow:0 1px 3px var(--color-paper)}
+.photo-overlay>span{font-family:var(--font-meta);font-size:var(--text-xs);letter-spacing:.015em}
+.photo-overlay small{font-family:var(--font-body);font-size:var(--text-sm);color:var(--color-ink);margin-top:var(--space-3xs)}
+.photo-link:hover{outline:none}
+.chapter-index{display:flex;flex-wrap:wrap;gap:var(--space-2xs) var(--space-sm);align-items:baseline;margin-bottom:var(--space-md)}
+.chapter-index .metadata{color:var(--color-accent)}
+.chapter-coordinate{font-family:var(--font-meta);font-size:.6875rem;color:var(--color-muted)}
+.life-chapter figure{overflow:clip}
+.life-chapter img{transform-origin:center}
+.life-chapter figcaption{position:relative;background:var(--color-paper);padding-top:var(--space-xs);margin-top:0}
+.chapter-copy h3{margin-block:var(--space-xs)}
+.school-name{font-size:clamp(1.75rem,2.3vw,2.25rem)}
+.chapter-route{max-width:420px;margin-block:var(--space-xl);font-size:.6875rem}
+.life-relationship{fill:none;stroke:var(--color-accent);stroke-width:1;pointer-events:none;opacity:0;vector-effect:non-scaling-stroke}
+@media(max-width:768px){
+ .personal-hero{grid-template-columns:minmax(0,1fr)}
+ .education .section-heading{margin-bottom:var(--space-lg)}
+ .world-section .section-heading{align-items:start;gap:var(--space-sm)}
+ .world-section .section-heading p{max-width:40ch}
+ .photography .section-heading{margin-left:0}
+ .personal-note{grid-template-columns:minmax(0,1fr);gap:var(--space-lg)}
+ .personal-note figure{width:65%;justify-self:end}
+ .selected-photos .photo-0,.selected-photos .photo-1,.selected-photos .photo-2,.selected-photos .photo-3{width:100%;margin:0;padding:0}
+ .selected-photos .photo-0 figcaption{max-width:none}
+ .selected-photos .photo-3 figcaption{flex-direction:row}
+ .chapter-coordinate{font-size:.75rem}
+}
+@media(max-width:600px){
+ .hero-copy h1{font-size:clamp(3.4rem,15vw,4.9rem)}
+ .section-heading h2{font-size:clamp(2.6rem,10.5vw,3.4rem);line-height:1.14}
+ .hero-intro{font-size:1.8rem}
+ .life-chapter figcaption,.portrait figcaption,.travel-photo figcaption small{font-size:.75rem}
+}
