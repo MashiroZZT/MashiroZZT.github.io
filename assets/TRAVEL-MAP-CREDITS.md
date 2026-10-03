@@ -17,3 +17,5 @@ Hover and focus interactions use locally hosted GSAP 3.13.0. Labels read the des
 - GSAP source: https://github.com/greensock/GSAP/blob/3.13.0/dist/gsap.min.js
 - GSAP license: https://gsap.com/standard-license
 - Copyright and license notice are retained in the vendored JavaScript.
+
+The atlas is now shown once on Home. The previous travel.html URL redirects to Home?s world section. Shared styling uses the personal archive?s navy, silver and school/city accents; original geographic coordinates and dataset names remain unchanged.
