@@ -1,0 +1,6 @@
+﻿/* Compact, pinned Fontsource WOFF2 faces; all fonts licensed under SIL OFL. */
+@font-face{font-family:'Archive Cormorant';font-style:normal;font-weight:400;font-display:swap;src:url('https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5.3.0/files/cormorant-garamond-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Archive Newsreader';font-style:normal;font-weight:400;font-display:swap;src:url('https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.3.0/files/newsreader-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Archive Newsreader';font-style:italic;font-weight:400;font-display:swap;src:url('https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.3.0/files/newsreader-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Archive Mono';font-style:normal;font-weight:400;font-display:swap;src:url('https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5.3.0/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2')}
+

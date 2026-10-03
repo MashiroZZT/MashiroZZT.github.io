@@ -1,0 +1,74 @@
+(() => {
+  const root=document.querySelector('.world-chart');
+  if(!root||!window.gsap)return;
+  const svg=root.querySelector('.globe-map');
+  const stage=root.querySelector('.map-stage');
+  const tooltip=root.querySelector('.atlas-tooltip');
+  const anchor=root.querySelector('.tooltip-position');
+  const readout=document.querySelector('#atlas-coordinate');
+  const markers=[...root.querySelectorAll('.place-marker')];
+  const media=gsap.matchMedia();
+  const initialize=()=>media.add({all:'(min-width: 0px)',reduceMotion:'(prefers-reduced-motion: reduce)'},context=>{
+    const reduce=context.conditions.reduceMotion;
+    const listeners=[];
+    const on=(target,event,fn)=>{target.addEventListener(event,fn);listeners.push(()=>target.removeEventListener(event,fn));};
+    const animations=new Map();
+    let hovered=null,focused=null,active=null;
+    gsap.set(tooltip,{autoAlpha:0,y:4});
+    // Reduced-motion users seek these paused timelines directly to their endpoints.
+    const reveal=gsap.timeline({paused:true}).to(tooltip,{autoAlpha:1,y:-2,duration:.18,ease:'power2.out'});
+    const placeTooltip=marker=>{
+      if(!marker)return;
+      // Read geometry only on selection, scrolling, or resizing; never every frame.
+      const matrix=svg.getScreenCTM(),rect=stage.getBoundingClientRect();
+      if(!matrix)return;
+      const point=new DOMPoint(Number(marker.dataset.x),Number(marker.dataset.y)).matrixTransform(matrix);
+      const width=tooltip.offsetWidth;
+      const x=Math.max(width/2+8,Math.min(rect.width-width/2-8,point.x-rect.left));
+      gsap.set(anchor,{x:x+stage.scrollLeft,y:point.y-rect.top+stage.scrollTop-15});
+    };
+    const update=()=>{
+      const next=hovered||focused;
+      if(next===active)return;
+      if(active){active.removeAttribute('aria-describedby');const old=animations.get(active);reduce?old.progress(0):old.reverse();active.classList.remove('is-active');}
+      active=next;
+      if(active){
+        tooltip.textContent=active.dataset.place;active.setAttribute('aria-describedby','atlas-tooltip');
+        tooltip.style.setProperty('--tooltip-color',getComputedStyle(active).getPropertyValue('--marker'));
+        placeTooltip(active);
+        active.classList.add('is-active');
+        const animation=animations.get(active);reduce?animation.progress(1):animation.play();
+        reduce?reveal.progress(1):reveal.restart();
+        if(readout){const lat=Number(active.dataset.lat),lon=Number(active.dataset.lon);readout.textContent=`${Math.abs(lat).toFixed(2)}? ${lat<0?'S':'N'} / ${Math.abs(lon).toFixed(2)}? ${lon<0?'W':'E'}`;}
+      }else{reduce?reveal.progress(0):reveal.reverse();if(readout)readout.textContent='Explore a star';}
+    };
+    for(const marker of markers){
+      const body=marker.querySelector('.marker-body');
+      const bright=marker.querySelector('.marker-bright');
+      gsap.set(body,{svgOrigin:`${marker.dataset.x} ${marker.dataset.y}`});
+      animations.set(marker,gsap.timeline({paused:true,defaults:{duration:.22,ease:'power2.out'}})
+        .to(body,{scale:1.22},0).to(bright,{opacity:.5},0));
+      on(marker,'pointerenter',e=>{if(e.pointerType==='touch')return;hovered=marker;update();});
+      on(marker,'pointerleave',()=>{if(hovered===marker)hovered=null;update();});
+      on(marker,'focus',()=>{focused=marker;update();});
+      on(marker,'blur',()=>{if(focused===marker)focused=null;update();});
+      on(marker,'pointerdown',e=>{if(e.pointerType==='mouse'){e.preventDefault();return;}e.preventDefault();hovered=null;marker.focus({preventScroll:true});focused=marker;update();});
+    }
+    on(root,'keydown',e=>{if(e.key==='Escape'){hovered=null;focused=null;update();document.activeElement?.blur();}});
+    on(stage,'scroll',()=>placeTooltip(active));
+    on(window,'resize',()=>placeTooltip(active));
+    on(window,'scroll',()=>placeTooltip(active));
+    on(document,'pointerdown',e=>{if(!e.target.closest('.place-marker')){hovered=null;focused=null;update();}});
+    let observer;
+    if(!reduce){
+      const halos=markers.filter(m=>m.querySelector('.marker-halo'));
+      const pulse=gsap.timeline({paused:true});
+      halos.forEach((m,i)=>{const halo=m.querySelector('.marker-halo');gsap.set(halo,{svgOrigin:`${m.dataset.x} ${m.dataset.y}`});pulse.to(halo,{scale:1.12,opacity:.2,duration:.25,ease:'sine.out'},i*.09).to(halo,{scale:1,opacity:.1,duration:.4,ease:'sine.inOut'},i*.09+.25);});
+      observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){pulse.play();observer.disconnect();}},{threshold:.4});observer.observe(svg);
+    }
+    return ()=>{observer?.disconnect();if(readout)readout.textContent='Explore a star';listeners.forEach(remove=>remove());markers.forEach(m=>{m.classList.remove('is-active');m.removeAttribute('aria-describedby');});tooltip.textContent='';};
+  },root);
+  initialize();
+  window.addEventListener('pagehide',()=>media.revert());
+  window.addEventListener('pageshow',e=>{if(e.persisted)initialize();});
+})();
