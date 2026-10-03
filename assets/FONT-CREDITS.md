@@ -8,3 +8,5 @@ License copies:
 - fonts/cormorant-garamond-LICENSE.txt
 - fonts/newsreader-LICENSE.txt
 - fonts/ibm-plex-mono-LICENSE.txt
+
+Great Vibes by Robert E. Leuschke (SIL OFL) supplies the calligraphic hero motto. Source: https://github.com/google/fonts/tree/main/ofl/greatvibes ; license: https://github.com/google/fonts/blob/main/ofl/greatvibes/OFL.txt .
