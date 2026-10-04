@@ -1,0 +1,53 @@
+/* Hallmark: editorial opening spread; quiet personal tone; celestial navy.
+ * Hero scope only. Existing typography, content, and surrounding archive preserved. */
+.hero-opening{
+ display:grid;
+ grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
+ align-items:start;
+ column-gap:var(--space-2xl);
+ row-gap:var(--space-xl);
+ padding-block:var(--space-2xl) var(--space-xl);
+}
+.hero-opening-copy{min-width:0;padding-top:var(--space-sm)}
+.hero-opening .name-native{font-size:var(--text-sm);margin-bottom:var(--space-md);letter-spacing:.1em}
+.hero-opening h1{font-size:clamp(3.5rem,6.8vw,6rem);letter-spacing:-.025em;line-height:1.1}
+.hero-opening .hero-intro{
+ font-size:clamp(1.85rem,2.5vw,2.3rem);
+ line-height:1.55;
+ margin-top:var(--space-xl);
+ padding-bottom:.15em;
+}
+.hero-opening .portrait{width:100%;margin-top:var(--space-xl);justify-self:end}
+.hero-opening .portrait img{aspect-ratio:3/2;object-fit:cover;object-position:center;border-radius:0}
+.hero-opening .portrait figcaption{font-size:var(--text-xs);margin-top:var(--space-xs);line-height:1.6}
+.hero-opening-band{
+ grid-column:1/-1;
+ display:flex;
+ justify-content:flex-start;
+ align-items:end;
+ gap:var(--space-2xl);
+ padding-top:var(--space-sm);
+}
+.hero-opening .hero-note{margin:0;max-width:49ch;font-size:var(--text-md);line-height:1.65}
+.hero-opening-band .text-link{flex-shrink:0;margin:0}
+@media(max-width:1000px) and (min-width:769px){
+ .hero-opening{column-gap:var(--space-lg)}
+ .hero-opening h1{font-size:clamp(3.25rem,6.8vw,4.6rem)}
+ .hero-opening .hero-intro{font-size:1.85rem}
+}
+@media(max-width:768px){
+ .hero-opening{grid-template-columns:minmax(0,1fr);row-gap:var(--space-lg);padding-block:var(--space-xl)}
+ .hero-opening-copy{padding-top:0}
+ .hero-opening h1{font-size:clamp(3rem,14vw,4.5rem)}
+ .hero-opening .hero-intro{font-size:clamp(1.7rem,7.5vw,2.2rem);margin-top:var(--space-lg);line-height:1.5}
+ .hero-opening .portrait{width:92%;max-width:540px;margin-top:0}
+ .hero-opening-band{display:block;padding-top:0}
+ .hero-opening .hero-note{font-size:var(--text-md);max-width:49ch}
+.hero-opening-band .text-link{margin-top:var(--space-md)}
+}
+@media(max-width:600px){
+ .hero-opening{row-gap:var(--space-md);padding-block:var(--space-lg) calc(var(--space-lg) + var(--space-xs))}
+ .hero-opening .name-native{margin-bottom:var(--space-sm)}
+ .hero-opening .hero-intro{margin-top:var(--space-md)}
+ .hero-opening .hero-note{font-size:1.125rem;line-height:1.6}
+}
