@@ -1,0 +1,4 @@
+/* Thin travel traces revealed by selection; no network at rest. */
+.flight-layer{pointer-events:none}
+.flight-route{fill:none;stroke:var(--color-accent);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round;opacity:.34;pointer-events:none}
+.destination-bright{fill:var(--color-ink);opacity:0;pointer-events:none}
