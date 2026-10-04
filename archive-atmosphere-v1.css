@@ -1,0 +1,7 @@
+/* Hallmark: quiet editorial archive; celestial navy; existing opening spread.
+ * Static texture and photographic interaction only; design-system: design.md. */
+body:after{content:'';position:fixed;inset:0;background:url('assets/archive-grain-v1.png') repeat;opacity:.14;pointer-events:none;z-index:-1}
+.photography .photo-overlay{padding:var(--space-lg) var(--space-sm) var(--space-sm);background:linear-gradient(transparent,var(--color-map-21))}
+.photography .photo-overlay>span{font-size:var(--text-xs);line-height:1.6}
+.photography .photo-link img{transform-origin:center}
+@media(prefers-reduced-motion:reduce){.photography .photo-link img{transform:none!important}}
