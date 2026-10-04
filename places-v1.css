@@ -1,0 +1,11 @@
+@import 'archive-v3.css';
+/* Empty place albums share the archive's typography and quiet night-sky palette. */
+.place-archive{max-width:880px;min-height:65vh;padding-block:var(--space-2xl)}
+.place-archive h1{font-size:clamp(3.25rem,7vw,6rem);line-height:1.15;margin-block:var(--space-md)}
+.place-archive .place-coordinate{font-family:var(--font-meta);font-size:var(--text-xs);color:var(--color-muted);margin-top:var(--space-sm)}
+.place-archive .text-link{margin-top:var(--space-xl)}
+.place-empty{color:var(--color-muted);margin-top:var(--space-2xl)}
+.place-gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-xl);margin-top:var(--space-2xl)}
+.place-gallery:empty{display:none}
+.place-gallery figcaption{color:var(--color-muted);margin-top:var(--space-xs)}
+@media(max-width:600px){.place-archive{padding-block:var(--space-xl)}}
